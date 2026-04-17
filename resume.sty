@@ -1,0 +1,146 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{resume}[2026/04/17 Abstracted Resume Style]
+
+% --- Core Packages ---
+\RequirePackage[
+    ignoreheadfoot, % Set margins without considering header and footer
+    top=2cm, bottom=2cm, left=1.75cm, right=1.75cm, footskip=1.0cm
+]{geometry}
+\RequirePackage{titlesec} % For customizing section titles
+\RequirePackage{tabularx} % For tables
+\RequirePackage{array}
+\RequirePackage[dvipsnames]{xcolor} % For text colors
+\RequirePackage{enumitem} % For list customization
+\RequirePackage{fontawesome5} % For icons
+\RequirePackage{amsmath}
+\RequirePackage{calc}
+\RequirePackage{changepage} % For single column entries
+\RequirePackage{paracol} % For two column layouts
+\RequirePackage{ifthen}
+\RequirePackage{needspace} % Prevent page breaks after titles
+\RequirePackage{iftex}
+
+% --- ATS Parsable PDF Setup ---
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \RequirePackage[utf8]{inputenc}
+    \RequirePackage{lmodern}
+\fi
+
+% --- Colors & Links ---
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\RequirePackage[
+    colorlinks=true,
+    urlcolor=primaryColor,
+    pdftitle={Resume},
+    pdfauthor={Mir Suhail Asarat}
+]{hyperref}
+
+% Custom link command with an external arrow icon
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+% --- Global Formatting ---
+\pagestyle{empty} % Remove page numbers
+\setcounter{secnumdepth}{0} % No section numbers
+\setlength{\parindent}{0pt} % Remove indentation
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm} % Column separation for paracol
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+
+% --- Section Styling ---
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3cm}{0.2cm}
+
+% --- Content Environments (Hidden from main file) ---
+\newenvironment{resumeheader}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{\par\kern\topsep}
+
+\renewcommand\labelitemi{$\circ$} % Custom bullet points
+
+\newenvironment{highlights}{
+    \begin{itemize}[topsep=0.10cm, parsep=0.10cm, partopsep=0pt, itemsep=0pt, leftmargin=0.4cm+10pt]
+}{\end{itemize}}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2cm+0.00001cm}{0.2cm+0.00001cm}
+}{\end{adjustwidth}}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 6cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+% ==============================================================================
+% SEMANTIC DATA COMMANDS (To be used in resume.tex)
+% ==============================================================================
+
+% Header Variables
+\newcommand{\contactItem}[3]{%
+    \mbox{\hrefWithoutArrow{#1}{\color{black}{\footnotesize #2}\hspace*{0.10cm}#3}}%
+}
+\newsavebox\ANDbox
+\sbox\ANDbox{}
+\newcommand{\contactSeparator}{%
+    \kern 0.15cm\unskip\cleaders\copy\ANDbox\hskip\wd\ANDbox\ignorespaces\kern 0.15cm%
+}
+
+\newcommand{\makeheader}[2]{
+    \begin{resumeheader}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont #1}
+        \vspace{0.3 cm}
+        
+        \fontsize{9.5}{11}\selectfont #2
+    \end{resumeheader}
+    \vspace{0.2cm}
+}
+
+% #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
+\newcommand{\resumeProject}[5]{
+    \begin{twocolentry}{\textit{#4}\vspace{0.05cm}\newline\textit{#3}}
+        \textbf{#1} \vspace{0.05cm}\newline \textit{#2}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: University, #2: Degree, #3: Location, #4: Date, #5: Bullet Points
+\newcommand{\resumeEducation}[5]{
+    \begin{twocolentry}{\textit{#3}\vspace{0.05cm}\newline\textit{#4}}
+        \textbf{#1} \vspace{0.05cm}\newline \textit{#2}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: Category, #2: Skills List
+\newcommand{\resumeSkill}[2]{
+    \begin{onecolentry}
+        \textbf{#1:} #2
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: Cert Name, #2: Date, #3: Link URL, #4: Link Text
+\newcommand{\resumeCert}[4]{
+    \begin{twocolentry}{\textit{Issued #2}}
+        \textbf{#1}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry} \href{#3}{#4} \end{onecolentry}
+    \vspace{0.2 cm}
+}

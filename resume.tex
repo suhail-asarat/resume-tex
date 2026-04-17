@@ -1,0 +1,79 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{resume}
+
+\begin{document}
+
+% ==============================================================================
+% HEADER
+% ==============================================================================
+\makeheader{Your Name}{
+    \contactItem{mailto:email@example.com}{\faEnvelope[regular]}{email@example.com}
+    \contactSeparator
+    \contactItem{tel:+1234567890}{\faPhone*}{+1 234 567 890}
+    \contactSeparator
+    \contactItem{https://yourwebsite.com}{\faLink}{yourwebsite.com}
+    \contactSeparator
+    \contactItem{https://linkedin.com/in/yourprofile}{\faLinkedinIn}{yourprofile}
+    \contactSeparator
+    \contactItem{https://github.com/yourgithub}{\faGithub}{yourgithub}
+}
+
+% ==============================================================================
+% EXPERIENCE & PROJECTS
+% ==============================================================================
+\section{Experience \& Projects}
+
+\resumeProject
+    {Project or Role Title 1}
+    {Technology 1, Technology 2, Technology 3}
+    {Month Year – Present}
+    {Company / Organization / Project Type}
+    {
+        \item Action verb + what you did + how you did it + quantifiable result or impact.
+        \item Highlight a specific technical implementation detail or problem solved.
+        \item Another bullet point highlighting a key contribution or feature.
+    }
+
+\resumeProject
+    {Project or Role Title 2}
+    {Technology 1, Technology 2}
+    {Month Year – Month Year}
+    {Company / Organization / Project Type}
+    {
+        \item Action verb + what you did + how you did it + quantifiable result or impact.
+        \item Highlight a specific technical implementation detail or problem solved.
+    }
+
+% ==============================================================================
+% TECHNICAL SKILLS
+% ==============================================================================
+\section{Technical Skills}
+\resumeSkill{Category 1}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
+\resumeSkill{Category 2}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
+\resumeSkill{Category 3}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
+
+% ==============================================================================
+% EDUCATION
+% ==============================================================================
+\section{Education}
+\resumeEducation
+    {University or Institution Name}
+    {Degree Name in Major}
+    {City, State / Country}
+    {Month Year – Month Year}
+    {
+        \item \textbf{Relevant Coursework:} Course 1, Course 2, Course 3, Course 4
+        \item \textbf{Extracurriculars / Honors:} Club Name, Position, Honor Name
+    }
+
+% ==============================================================================
+% CERTIFICATIONS
+% ==============================================================================
+\section{Certifications}
+\resumeCert
+    {Certification Name}
+    {Month Year}
+    {https://link-to-credential.com}
+    {Verify Credential}
+
+\end{document}
