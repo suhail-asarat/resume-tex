@@ -105,8 +105,11 @@
 
 % #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
 \newcommand{\resumeProject}[5]{
-    \begin{twocolentry}{\textit{#4}\vspace{0.05cm}\newline\textit{#3}}
-        \textbf{#1} \vspace{0.05cm}\newline \textit{#2}
+    \begin{twocolentry}{\textit{#4}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#3}}
+        \textit{#2}
     \end{twocolentry}
     \vspace{0.10 cm}
     \begin{onecolentry}
