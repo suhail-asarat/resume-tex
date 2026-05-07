@@ -104,6 +104,21 @@
 }
 
 % #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
+\newcommand{\resumeExperience}[5]{
+    \begin{twocolentry}{\textit{#4}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#3}}
+        \textit{#2}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
 \newcommand{\resumeProject}[5]{
     \begin{twocolentry}{\textit{#4}}
         \textbf{#1}
