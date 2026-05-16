@@ -4,7 +4,7 @@
 % --- Core Packages ---
 \RequirePackage[
     ignoreheadfoot, % Set margins without considering header and footer
-    top=2cm, bottom=2cm, left=1.75cm, right=1.75cm, footskip=1.0cm
+    top=0.5in, bottom=0.5in, left=0.5in, right=0.5in
 ]{geometry}
 \RequirePackage{titlesec} % For customizing section titles
 \RequirePackage{tabularx} % For tables
@@ -51,7 +51,7 @@
 
 % --- Section Styling ---
 \titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
-\titlespacing{\section}{-1pt}{0.3cm}{0.2cm}
+\titlespacing{\section}{0pt}{0.3cm}{0.2cm}
 
 % --- Content Environments (Hidden from main file) ---
 \newenvironment{resumeheader}{
