@@ -27,20 +27,39 @@
 % ==============================================================================
 % EDUCATION
 % ==============================================================================
+% #1: Degree, #2: University, #3: Date, #4: Location, #5: Bullet Points
+
 \section{Education}
 \resumeEducation
-    {University or Institution Name}
     {Degree Name in Major}
-    {City, Country}
+    {University or Institution Name}
     {Month, Year – Month, Year}
+    {City, Country}
     {
         \item \textbf{Relevant Coursework:} Course 1, Course 2, Course 3, Course 4
         \item \textbf{Extracurriculars / Honors:} Club Name, Position, Honor Name
+        \item \textbf{Thesis:} Thesis Title - Your contribution or speciality of in this thesis. (This is another way to add your Thesis)
     }
+
+% ==============================================================================
+% PUBLICATIONS / THESIS
+% ==============================================================================
+% #1: Publication Title, #2: Authors, #3: Date, #4: Venue, #5: URL Text, #6: URL
+
+\section{Publications / Thesis}
+\resumePublication
+    {Title of the Publication or Thesis}
+    {\textbf{Your Name}, Co-author 1, Co-author 2}
+    {Month, Year}
+    {Name of the Journal, Conference, or Institution}
+    {DOI/Link}
+    {https://doi.org/10.xxxx/xxxxx}
 
 % ==============================================================================
 % TECHNICAL SKILLS
 % ==============================================================================
+% #1: Category, #2: Skills List
+
 \section{Technical Skills}
 \resumeSkill{Category 1}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
 \resumeSkill{Category 2}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
@@ -49,11 +68,13 @@
 % ==============================================================================
 % PROJECTS
 % ==============================================================================
+% #1: Title, #2: Date, #3: Technology, #4: Subtitle/Type, #5: Bullet Points
+
 \section{Projects}
 \resumeProject
-    {Project or Role Title 2}
-    {Technology 1, Technology 2}
+    {Project Title}
     {Month, Year – Month, Year}
+    {Technology 1, Technology 2}
     {Project Type}
     {
         \item Action verb + what you did + how you did it + quantifiable result or impact.
@@ -63,13 +84,14 @@
 % ==============================================================================
 % WORK EXPERIENCE
 % ==============================================================================
-\section{Work Experience}
+% #1: Title, #2: Date, #3: Company, #4: Location, #5: Bullet Points
 
+\section{Work Experience}
 \resumeExperience
-    {Project or Role Title 1}
-    {Technology 1, Technology 2, Technology 3}
-    {Month, Year – Present}
+    {Role Title}
+    {Month, Year – Month, Year}
     {Company / Organization}
+    {City, Country}
     {
         \item Action verb + what you did + how you did it + quantifiable result or impact.
         \item Highlight a specific technical implementation detail or problem solved.
@@ -79,12 +101,13 @@
 % ==============================================================================
 % CO-CURRICULAR ACTIVITIES
 % ==============================================================================
-\section{Co-Curricular Activities}
+% #1: Position, #2: Date, #3: Event/Group, #4: Organization, #5: Bullet Points
 
-\resumeExperience
+\section{Co-Curricular Activities}
+\resumeCoCurricularActivity
     {Role or Position Title}
-    {Event or Sub-group}
     {Month, Year – Month, Year}
+    {Event or Sub-group}
     {Club / Organization}
     {
         \item Describe your involvement, responsibilities, and achievements.
@@ -94,6 +117,8 @@
 % ==============================================================================
 % CERTIFICATIONS & AWARDS
 % ==============================================================================
+% #1: Cert Name, #2: Date, #3: Link URL, #4: Link Text
+
 \section{Certifications \& Awards}
 \resumeCert
     {Certification Name}

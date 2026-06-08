@@ -117,37 +117,7 @@
     \vspace{0.2 cm}
 }
 
-% #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
-\newcommand{\resumeExperience}[5]{
-    \begin{twocolentry}{\textit{#4}}
-        \textbf{#1}
-    \end{twocolentry}
-    \begin{twocolentry}{\textit{#3}}
-        \textit{#2}
-    \end{twocolentry}
-    \vspace{0.10 cm}
-    \begin{onecolentry}
-        \begin{highlights} #5 \end{highlights}
-    \end{onecolentry}
-    \vspace{0.2 cm}
-}
-
-% #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
-\newcommand{\resumeProject}[5]{
-    \begin{twocolentry}{\textit{#4}}
-        \textbf{#1}
-    \end{twocolentry}
-    \begin{twocolentry}{\textit{#3}}
-        \textit{#2}
-    \end{twocolentry}
-    \vspace{0.10 cm}
-    \begin{onecolentry}
-        \begin{highlights} #5 \end{highlights}
-    \end{onecolentry}
-    \vspace{0.2 cm}
-}
-
-% #1: University, #2: Degree, #3: Date, #4: Location, #5: Bullet Points
+% #1: Degree, #2: University, #3: Date, #4: Date, #5: Bullet Points
 \newcommand{\resumeEducation}[5]{
     \begin{twocolentry}{\textit{#3}}
         \textbf{#1}
@@ -162,12 +132,70 @@
     \vspace{0.2 cm}
 }
 
+% #1: Publication Title, #2: Authors, #3: Date, #4: Venue, #5: URL Text, #6: URL
+\newcommand{\resumePublication}[6]{
+    \begin{twocolentry}{\textit{Published #3}}
+        \textbf{#1}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        #2 \\
+        \textit{#4} \ifthenelse{\equal{#6}{}}{}{ | \href{#6}{#5}}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
 % #1: Category, #2: Skills List
 \newcommand{\resumeSkill}[2]{
     \begin{onecolentry}
         \textbf{#1:} #2
     \end{onecolentry}
     \vspace{0.05 cm}
+}
+
+% #1: Title, #2: Date, #3: Technology, #4: Subtitle/Type, #5: Bullet Points
+\newcommand{\resumeProject}[5]{
+    \begin{twocolentry}{\textit{#2}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#4}}
+        \textit{#3}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: Title, #2: Date, #3: Company, #4: Location, #5: Bullet Points
+\newcommand{\resumeExperience}[5]{
+    \begin{twocolentry}{\textit{#2}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#4}}
+        \textit{#3}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
+% #1: Position, #2: Date, #3: Event/Group, #4: Organization, #5: Bullet Points
+\newcommand{\resumeCoCurricularActivity}[5]{
+    \begin{twocolentry}{\textit{#2}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#4}}
+        \textit{#3}
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights} #5 \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
 }
 
 % #1: Cert Name, #2: Date, #3: Link URL, #4: Link Text
@@ -179,3 +207,4 @@
     \begin{onecolentry} \href{#3}{#4} \end{onecolentry}
     \vspace{0.2 cm}
 }
+
