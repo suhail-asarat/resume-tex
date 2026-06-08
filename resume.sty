@@ -51,7 +51,7 @@
 
 % --- Section Styling ---
 \titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
-\titlespacing{\section}{0pt}{0.3cm}{0.2cm}
+\titlespacing{\section}{0pt}{0.15cm}{0.2cm}
 
 % --- Content Environments (Hidden from main file) ---
 \newenvironment{resumeheader}{
@@ -61,7 +61,7 @@
 \renewcommand\labelitemi{$\circ$} % Custom bullet points
 
 \newenvironment{highlights}{
-    \begin{itemize}[topsep=0.10cm, parsep=0.10cm, partopsep=0pt, itemsep=0pt, leftmargin=0.4cm+10pt]
+    \begin{itemize}[topsep=0.05cm, parsep=0.03cm, partopsep=0pt, itemsep=0pt, leftmargin=0.4cm+10pt]
 }{\end{itemize}}
 
 \newenvironment{onecolentry}{
@@ -109,6 +109,14 @@
     \vspace{0.2cm}
 }
 
+% #1: Summary Text
+\newcommand{\resumeSummary}[1]{
+    \begin{onecolentry}
+        #1
+    \end{onecolentry}
+    \vspace{0.2 cm}
+}
+
 % #1: Title, #2: Tech Stack, #3: Date, #4: Subtitle/Type, #5: Bullet Points
 \newcommand{\resumeExperience}[5]{
     \begin{twocolentry}{\textit{#4}}
@@ -139,10 +147,13 @@
     \vspace{0.2 cm}
 }
 
-% #1: University, #2: Degree, #3: Location, #4: Date, #5: Bullet Points
+% #1: University, #2: Degree, #3: Date, #4: Location, #5: Bullet Points
 \newcommand{\resumeEducation}[5]{
-    \begin{twocolentry}{\textit{#3}\vspace{0.05cm}\newline\textit{#4}}
-        \textbf{#1} \vspace{0.05cm}\newline \textit{#2}
+    \begin{twocolentry}{\textit{#3}}
+        \textbf{#1}
+    \end{twocolentry}
+    \begin{twocolentry}{\textit{#4}}
+        \textit{#2}
     \end{twocolentry}
     \vspace{0.10 cm}
     \begin{onecolentry}
@@ -156,7 +167,7 @@
     \begin{onecolentry}
         \textbf{#1:} #2
     \end{onecolentry}
-    \vspace{0.2 cm}
+    \vspace{0.05 cm}
 }
 
 % #1: Cert Name, #2: Date, #3: Link URL, #4: Link Text

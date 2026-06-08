@@ -1,0 +1,4 @@
+{
+    "latex-workshop.docker.image.latex": "texlive/texlive:latest-full",
+    "latex-workshop.docker.enabled": false
+}

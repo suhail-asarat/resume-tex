@@ -1,0 +1,12 @@
+{
+  "name": "LaTeX",
+  "image": "texlive/texlive:latest-full",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ]
+    }
+  },
+  "postCreateCommand": "tlmgr update --self && tlmgr install acronym pgf && texhash"
+}   
