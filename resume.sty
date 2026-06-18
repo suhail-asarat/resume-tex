@@ -11,7 +11,8 @@
 \RequirePackage{array}
 \RequirePackage[dvipsnames]{xcolor} % For text colors
 \RequirePackage{enumitem} % For list customization
-\RequirePackage{fontawesome5} % For icons
+\RequirePackage{fontawesome5} % For visual icons
+\RequirePackage{accsupp} % For ATS text replacement
 \RequirePackage{amsmath}
 \RequirePackage{calc}
 \RequirePackage{changepage} % For single column entries
@@ -39,7 +40,7 @@
 
 % Custom link command with an external arrow icon
 \let\hrefWithoutArrow\href
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }}}
 
 % --- Global Formatting ---
 \pagestyle{empty} % Remove page numbers
@@ -77,6 +78,13 @@
     \switchcolumn \raggedleft \secondColumn
     \end{paracol}
     \endonecolentry
+}
+
+% --- ATS-Friendly Icon Wrapper ---
+\newcommand{\atsIcon}[2]{%
+    \BeginAccSupp{method=pdfstringdef,unicode,ActualText=#1}%
+    #2%
+    \EndAccSupp{}%
 }
 
 % ==============================================================================
@@ -184,7 +192,7 @@
 }
 
 % #1: Position, #2: Date, #3: Event/Group, #4: Organization, #5: Bullet Points
-\newcommand{\resumeCoCurricularActivity}[5]{
+\newcommand{\resumeExtracurricularActivity}[5]{
     \begin{twocolentry}{\textit{#2}}
         \textbf{#1}
     \end{twocolentry}
@@ -207,4 +215,3 @@
     \begin{onecolentry} \href{#3}{#4} \end{onecolentry}
     \vspace{0.2 cm}
 }
-
