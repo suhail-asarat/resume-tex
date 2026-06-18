@@ -142,6 +142,11 @@
             \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
             \contactItem{#8}{\atsIcon{GitHub: }{\faGithub}}{#9}%
         }%
+        % --- Commented example: Adding a custom entry like a portfolio link ---
+        % % Uncomment and modify the lines below to add a portfolio or other link
+        % \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+        % \contactItem{https://yourportfolio.com}{\atsIcon{Portfolio: }{\faGlobe}}{yourportfolio.com}%
+        % ----------------------------------------------------------------------
     }%
 }
 
