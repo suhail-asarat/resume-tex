@@ -6,18 +6,18 @@
 % ==============================================================================
 % HEADER
 % ==============================================================================
-% #1: Name, #2: Location URL, #3: Location Name, #4: Email, #5: Phone, #6: LinkedIn URL, #7: LinkedIn Name, #8: GitHub URL, #9: GitHub Name
 
-\resumeHeader
-    {Your Name}
-    {https://map.location}
-    {City}
-    {email@example.com}
-    {+1 234 567 890}
-    {https://linkedin.com/in/yourprofile}
-    {linkedin.com/in/yourprofile}
-    {https://github.com/yourgithub}
-    {github.com/yourgithub}
+\makeheader{Your Name}{
+    \contactItem{https://map.location}{\atsIcon{Location: }{\faMapMarker*}}{City}{}
+    \contactSeparator
+    \contactItem{mailto:email@example.com}{\atsIcon{Email: }{\faEnvelope[regular]}}{email@example.com}{}
+    \contactSeparator
+    \contactItem{tel:+1234567890}{\atsIcon{Phone: }{\faPhone*}}{+1 234 567 890}{}
+    \contactSeparator
+    \contactItem{https://linkedin.com/in/yourprofile}{\atsIcon{LinkedIn: }{\faLinkedinIn}}{linkednin.com/in/yourprofile}{}
+    \contactSeparator
+    \contactItem{https://github.com/yourgithub}{\atsIcon{GitHub: }{\faGithub}}{github.com/yourgithub}{}
+}
 
 % ==============================================================================
 % SUMMARY / OBJECTIVE (Optional)

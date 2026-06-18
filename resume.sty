@@ -117,6 +117,34 @@
     \vspace{0.2cm}
 }
 
+\newboolean{isFirstContactItem}
+% #1: Name, #2: Location URL, #3: Location Name, #4: Email, #5: Phone, #6: LinkedIn URL, #7: LinkedIn Name, #8: GitHub URL, #9: GitHub Name
+\newcommand{\resumeHeader}[9]{
+    \setboolean{isFirstContactItem}{true}%
+    \makeheader{#1}{%
+        \ifthenelse{\equal{#3}{}}{}{%
+            \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+            \contactItem{#2}{\atsIcon{Location: }{\faMapMarker*}}{#3}%
+        }%
+        \ifthenelse{\equal{#4}{}}{}{%
+            \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+            \contactItem{mailto:#4}{\atsIcon{Email: }{\faEnvelope[regular]}}{#4}%
+        }%
+        \ifthenelse{\equal{#5}{}}{}{%
+            \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+            \contactItem{tel:#5}{\atsIcon{Phone: }{\faPhone*}}{#5}%
+        }%
+        \ifthenelse{\equal{#7}{}}{}{%
+            \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+            \contactItem{#6}{\atsIcon{LinkedIn: }{\faLinkedinIn}}{#7}%
+        }%
+        \ifthenelse{\equal{#9}{}}{}{%
+            \ifthenelse{\boolean{isFirstContactItem}}{\setboolean{isFirstContactItem}{false}}{\contactSeparator}%
+            \contactItem{#8}{\atsIcon{GitHub: }{\faGithub}}{#9}%
+        }%
+    }%
+}
+
 % #1: Summary Text
 \newcommand{\resumeSummary}[1]{
     \begin{onecolentry}
@@ -176,7 +204,7 @@
     \vspace{0.2 cm}
 }
 
-% #1: Title, #2: Date, #3: Company, #4: Location, #5: Bullet Points
+% #1: Title, #2: Date, #3: Organization, #4: Location, #5: Bullet Points
 \newcommand{\resumeExperience}[5]{
     \begin{twocolentry}{\textit{#2}}
         \textbf{#1}
@@ -206,12 +234,13 @@
     \vspace{0.2 cm}
 }
 
-% #1: Cert Name, #2: Date, #3: Link URL, #4: Link Text
-\newcommand{\resumeCert}[4]{
-    \begin{twocolentry}{\textit{Issued #2}}
+% #1: Cert Name, #2: Issuer, #3: Date, #4: Link Text, #5: Link URL
+\newcommand{\resumeCert}[5]{
+    \begin{twocolentry}{\textit{Issued #3}}
         \textbf{#1}
     \end{twocolentry}
-    \vspace{0.10 cm}
-    \begin{onecolentry} \href{#3}{#4} \end{onecolentry}
+    \begin{twocolentry}{\textit{\href{#5}{#4}}}
+        \textit{#2}
+    \end{twocolentry}
     \vspace{0.2 cm}
 }
